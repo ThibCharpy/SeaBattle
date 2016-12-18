@@ -7,3 +7,8 @@
 /build
 /captures
 .externalNativeBuild
+Supprimerait .idea/
+Supprimerait app/libs/
+Supprimerait app/src/main/res/drawable/
+Supprimerait model/libs/
+/gradle
