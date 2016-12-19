@@ -1,4 +1,4 @@
-package fr.univ.orleans.android.seabattle.model.Anyone;
+package fr.univ.orleans.android.seabattle.model;
 
 /**
  * Created by thibault on 15/12/16.
@@ -6,6 +6,8 @@ package fr.univ.orleans.android.seabattle.model.Anyone;
 
 public class Someone {
     private String name;
+
+    public Someone(){}
 
     public Someone( String name) {
         this.name = name;

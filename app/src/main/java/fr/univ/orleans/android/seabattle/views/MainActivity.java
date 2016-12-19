@@ -1,24 +1,29 @@
 package fr.univ.orleans.android.seabattle.views;
 
-import android.support.v7.app.AppCompatActivity;
+import android.app.ListActivity;
 import android.os.Bundle;
+import android.text.Editable;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import java.util.List;
+
 import fr.univ.orleans.android.seabattle.R;
 import fr.univ.orleans.android.seabattle.controller.Controller;
-import fr.univ.orleans.android.seabattle.model.Anyone.Player;
+import fr.univ.orleans.android.seabattle.database.PlayersDataSource;
+import fr.univ.orleans.android.seabattle.model.Player;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends ListActivity {
 
     private Controller controller;
+
+    private PlayersDataSource dataSource;
 
     EditText name;
 
     EditText username;
-
-    TextView display;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,15 +33,38 @@ public class MainActivity extends AppCompatActivity {
         this.controller = new Controller();
         this.name = (EditText) findViewById(R.id.name);
         this.username = (EditText) findViewById(R.id.username);
-        this.display = (TextView) findViewById(R.id.display);
+
+        dataSource = new PlayersDataSource(this);
+        dataSource.open();
+
+        List<Player> players = dataSource.getAllPlayers();
+
+        ArrayAdapter<Player> adapter = new ArrayAdapter<Player>(this,
+                android.R.layout.simple_list_item_1, players);
+        setListAdapter(adapter);
     }
 
     public void add(View view) {
-        String name = this.name.getText().toString();
-        String username = this.username.getText().toString();
+        ArrayAdapter<Player> adapter = (ArrayAdapter<Player>) getListAdapter();
+        Player player = null;
+        Editable name = this.name.getText();
+        Editable username = this.username.getText();
+        if (view.getId() == R.id.buttonAdd){
+            player = dataSource.createPlayer(name.toString(),username.toString());
+            adapter.add(player);
+        }
+        adapter.notifyDataSetChanged();
+    }
 
-        Player p = this.controller.addPlayer(name,username);
+    @Override
+    protected void onResume() {
+        dataSource.open();
+        super.onResume();
+    }
 
-        display.setText("You added the player called "+p.getUsername()+" id="+p.getId());
+    @Override
+    protected void onPause() {
+        dataSource.close();
+        super.onPause();
     }
 }

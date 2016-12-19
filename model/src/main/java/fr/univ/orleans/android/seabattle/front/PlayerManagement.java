@@ -1,6 +1,6 @@
 package fr.univ.orleans.android.seabattle.front;
 
-import fr.univ.orleans.android.seabattle.model.Anyone.Player;
+import fr.univ.orleans.android.seabattle.model.Player;
 
 /**
  * Created by thibault on 15/12/16.
