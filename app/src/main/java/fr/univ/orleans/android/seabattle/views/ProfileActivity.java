@@ -9,7 +9,6 @@ import android.widget.TextView;
 
 import fr.univ.orleans.android.seabattle.R;
 import fr.univ.orleans.android.seabattle.controller.Controller;
-import fr.univ.orleans.android.seabattle.model.Anyone.Player;
 
 /**
  * Created by Maxxx on 20/12/2016.
@@ -18,6 +17,7 @@ public class ProfileActivity extends AppCompatActivity {
 
     private Controller controller;
 
+    //bonjour
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,8 +65,6 @@ public class ProfileActivity extends AppCompatActivity {
         fieldNbwin.setText("666");
         TextView fieldRatio = (TextView)findViewById(R.id.fieldRatio);
         fieldRatio.setText("12");
-
-        Player p = this.controller.getPlayerbyUsername("mescouilles");
 
     }
 }
