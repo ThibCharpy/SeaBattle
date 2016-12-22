@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="buttonEdit" type="id" />
+    <item name="buttonDelete" type="id" />
+    <item name="buttonReset" type="id" />
+    <item name="nameField" type="id" />
+    <item name="deleteField" type="id" />
+    <item name="resetField" type="id" />
+</resources>
