@@ -2,6 +2,7 @@ package fr.univ.orleans.android.seabattle.views;
 
 import android.app.Activity;
 import android.app.ListActivity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.view.View;
@@ -40,20 +41,6 @@ public class MainActivity extends Activity {
 
         this.listView = (ListView) findViewById(R.id.listProfils);
         this.listView.setLongClickable(true);
-        this.listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(getApplicationContext(), "short clicked pos: " + position, Toast.LENGTH_LONG).show();
-            }
-        });
-        this.listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
-            @Override
-            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(getApplicationContext(), "long clicked pos: " + position, Toast.LENGTH_LONG).show();
-                return true;
-            }
-        });
-
 
         this.dataSource = new ProfilsDataSource(this);
         this.dataSource.open();
@@ -62,6 +49,24 @@ public class MainActivity extends Activity {
 
         ArrayAdapter<Profil> adapter = new ArrayAdapter<Profil>(this,
                 android.R.layout.simple_list_item_1, profils);
+
+        this.listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> list, View view, int position, long id) {
+                Intent goToMenu = new Intent(getApplicationContext(),MenuActivity.class);
+                Profil profilSelect = (Profil) list.getItemAtPosition(position);
+                goToMenu.putExtra("currentProfil",profilSelect.getUsername());
+                startActivity(goToMenu);
+                //Toast.makeText(getApplicationContext(), "short clicked pos: " + position, Toast.LENGTH_LONG).show();
+            }
+        });
+        this.listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> list, View view, int position, long id) {
+                Toast.makeText(getApplicationContext(), "long clicked pos: " + position, Toast.LENGTH_LONG).show();
+                return true;
+            }
+        });
 
         this.listView.setAdapter(adapter);
 
