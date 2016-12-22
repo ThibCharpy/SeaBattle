@@ -20,6 +20,8 @@ import fr.univ.orleans.android.seabattle.controller.Controller;
 import fr.univ.orleans.android.seabattle.database.ProfilsDataSource;
 import fr.univ.orleans.android.seabattle.model.Profil;
 
+//TODO faire connection vers MenuLayout
+
 public class MainActivity extends Activity {
 
     private Controller controller;
