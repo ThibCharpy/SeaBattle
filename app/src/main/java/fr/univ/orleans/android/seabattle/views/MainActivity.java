@@ -1,8 +1,10 @@
 package fr.univ.orleans.android.seabattle.views;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -29,6 +31,14 @@ public class MainActivity extends AppCompatActivity {
         this.name = (EditText) findViewById(R.id.name);
         this.username = (EditText) findViewById(R.id.username);
         this.display = (TextView) findViewById(R.id.display);
+        Button buttonPlay = (Button)findViewById(R.id.buttonPlay);
+        buttonPlay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, Menu.class);
+                startActivity(intent);
+            }
+        });
     }
 
     public void add(View view) {
@@ -36,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
         String username = this.username.getText().toString();
 
         Player p = this.controller.addPlayer(name,username);
-
         display.setText("You added the player called "+p.getUsername()+" id="+p.getId());
     }
+
 }
