@@ -18,5 +18,9 @@ public class Controller {
         this.myFront.addProfil(profil);
     }
 
+    public Player getPlayerbyUsername(String username) {
+        return this.myFront.getPlayerByUsername(username);
+    }
+
 
 }

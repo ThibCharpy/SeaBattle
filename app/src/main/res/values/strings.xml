@@ -3,8 +3,11 @@
     <string name="input_name">Name: </string>
     <string name="input_username">New username: </string>
     <string name="buttonAdd_value">Add</string>
-    
+
     <string name="create_profile">Create new profil</string>
     <string name="edit_profile">Edit profil</string>
     <string name="delete_profile">Delete profil</string>
+    <string name="buttonEdit">Edit</string>
+    <string name="buttonDelete">Delete</string>
+    <string name="buttonReset">Reset</string>
 </resources>

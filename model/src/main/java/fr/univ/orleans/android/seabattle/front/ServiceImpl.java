@@ -27,5 +27,13 @@ public class ServiceImpl implements ProfilsManagement {
         return this.profils.size();
     }
 
+    public Player getPlayerByUsername (String username){
+        for (Player p: players){
+            if (p.getUsername().equals(username))
+                return p;
+        }
+        return null;
+    }
+
 
 }

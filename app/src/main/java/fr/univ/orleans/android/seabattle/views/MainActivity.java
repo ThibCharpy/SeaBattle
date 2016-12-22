@@ -86,4 +86,5 @@ public class MainActivity extends Activity {
             input_zone.setVisibility(Button.GONE);
         }
     }
+
 }
