@@ -4,24 +4,26 @@ import android.app.ListActivity;
 import android.os.Bundle;
 import android.text.Editable;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
+import android.widget.LinearLayout;
+import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.List;
 
 import fr.univ.orleans.android.seabattle.R;
 import fr.univ.orleans.android.seabattle.controller.Controller;
-import fr.univ.orleans.android.seabattle.database.PlayersDataSource;
-import fr.univ.orleans.android.seabattle.model.Player;
+import fr.univ.orleans.android.seabattle.database.ProfilsDataSource;
+import fr.univ.orleans.android.seabattle.model.Profil;
 
-public class MainActivity extends ListActivity {
+public class MainActivity extends ListActivity implements AdapterView.OnItemLongClickListener {
 
     private Controller controller;
 
-    private PlayersDataSource dataSource;
-
-    EditText name;
+    private ProfilsDataSource dataSource;
 
     EditText username;
 
@@ -31,40 +33,42 @@ public class MainActivity extends ListActivity {
         setContentView(R.layout.activity_main);
 
         this.controller = new Controller();
-        this.name = (EditText) findViewById(R.id.name);
         this.username = (EditText) findViewById(R.id.username);
 
-        dataSource = new PlayersDataSource(this);
-        dataSource.open();
+        this.dataSource = new ProfilsDataSource(this);
+        this.dataSource.open();
 
-        List<Player> players = dataSource.getAllPlayers();
+        List<Profil> profils = this.dataSource.getAllProfils();
 
-        ArrayAdapter<Player> adapter = new ArrayAdapter<Player>(this,
-                android.R.layout.simple_list_item_1, players);
+        ArrayAdapter<Profil> adapter = new ArrayAdapter<Profil>(this,
+                android.R.layout.simple_list_item_1, profils);
+
         setListAdapter(adapter);
+
     }
 
     public void add(View view) {
-        ArrayAdapter<Player> adapter = (ArrayAdapter<Player>) getListAdapter();
-        Player player = null;
-        Editable name = this.name.getText();
+        ArrayAdapter<Profil> adapter = (ArrayAdapter<Profil>) getListAdapter();
+        Profil profil = null;
+
         Editable username = this.username.getText();
-        if (view.getId() == R.id.buttonAdd){
-            player = dataSource.createPlayer(name.toString(),username.toString());
-            adapter.add(player);
-        }
+
+        profil = this.dataSource.createProfil(username.toString());
+        adapter.add(profil);
+        System.out.println(profil.toString());
+        this.controller.addProfil(profil);
         adapter.notifyDataSetChanged();
+
+        if(5 <= adapter.getCount()){
+            LinearLayout input_zone = (LinearLayout) findViewById(R.id.input_username);
+            input_zone.setVisibility(Button.GONE);
+        }
     }
 
-    @Override
-    protected void onResume() {
-        dataSource.open();
-        super.onResume();
-    }
 
     @Override
-    protected void onPause() {
-        dataSource.close();
-        super.onPause();
+    public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+        Toast.makeText(this, "long clicked pos: " + position, Toast.LENGTH_LONG).show();
+        return true;
     }
 }

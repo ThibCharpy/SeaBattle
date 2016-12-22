@@ -1,6 +1,10 @@
 <resources>
     <string name="app_name">SeaBattle</string>
     <string name="input_name">Name: </string>
-    <string name="input_username">Username: </string>
+    <string name="input_username">New username: </string>
     <string name="buttonAdd_value">Add</string>
+    
+    <string name="create_profile">Create new profil</string>
+    <string name="edit_profile">Edit profil</string>
+    <string name="delete_profile">Delete profil</string>
 </resources>

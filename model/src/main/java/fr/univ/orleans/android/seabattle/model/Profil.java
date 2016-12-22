@@ -4,19 +4,11 @@ package fr.univ.orleans.android.seabattle.model;
  * Created by thibault on 15/12/16.
  */
 
-public class Player extends Someone{
+public class Profil {
+
     private String username;
     private long id;
-
-    public Player(){
-        super();
-    }
-
-    public Player(String name, long id, String username) {
-        super(name);
-        this.username = username;
-        this.id = id;
-    }
+    private int wonGames;
 
     public String getUsername() {
         return username;
@@ -32,5 +24,18 @@ public class Player extends Someone{
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    public int getWonGames() { return wonGames; }
+
+    public void setWonGames(int wonGames) { this.wonGames = wonGames; }
+
+    @Override
+    public String toString() {
+        return "Profil: " +
+                "username='" + username + '\'' +
+                ", id=" + id +
+                ", wonGames=" + wonGames +
+                '.';
     }
 }
