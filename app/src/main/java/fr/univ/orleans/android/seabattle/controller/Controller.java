@@ -18,5 +18,9 @@ public class Controller {
         return this.myFront.addPlayer(name,username);
     }
 
+    public Player getPlayerbyUsername(String username) {
+        return this.myFront.getPlayerByUsername(username);
+    }
+
 
 }

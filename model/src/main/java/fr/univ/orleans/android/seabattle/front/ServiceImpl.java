@@ -15,6 +15,7 @@ public class ServiceImpl implements PlayerManagement {
 
     public ServiceImpl(){
         players = new ArrayList<>();
+
     }
 
     @Override
@@ -27,6 +28,14 @@ public class ServiceImpl implements PlayerManagement {
     @Override
     public int getPlayersNumber() {
         return this.players.size();
+    }
+
+    public Player getPlayerByUsername (String username){
+        for (Player p: players){
+            if (p.getUsername().equals(username))
+                return p;
+        }
+        return null;
     }
 
 
