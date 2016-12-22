@@ -8,7 +8,7 @@ import fr.univ.orleans.android.seabattle.model.Anyone.Player;
 /**
  * Created by thibault on 15/12/16.
  */
-
+//C'est mon ter-ter ici
 public class ServiceImpl implements PlayerManagement {
 
     List<Player> players;
