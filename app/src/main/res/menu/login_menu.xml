@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:actionbarcompat="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/item_create_profil"
+        android:orderInCategory="100"
+        actionbarcompat:showAsAction="never"
+        android:title="@string/create_profile">
+    </item>
+    <item
+        android:id="@+id/item_edit_profil"
+        android:orderInCategory="100"
+        actionbarcompat:showAsAction="never"
+        android:title="@string/edit_profile">
+    </item>
+    <item
+        android:id="@+id/item_delete_profil"
+        android:orderInCategory="100"
+        actionbarcompat:showAsAction="never"
+        android:title="@string/delete_profile">
+    </item>
+</menu>

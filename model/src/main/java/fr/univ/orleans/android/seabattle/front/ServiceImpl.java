@@ -3,35 +3,32 @@ package fr.univ.orleans.android.seabattle.front;
 import java.util.ArrayList;
 import java.util.List;
 
-import fr.univ.orleans.android.seabattle.model.Anyone.Player;
+import fr.univ.orleans.android.seabattle.model.Profil;
 
 /**
  * Created by thibault on 15/12/16.
  */
 
-public class ServiceImpl implements PlayerManagement {
+public class ServiceImpl implements ProfilsManagement {
 
-    List<Player> players;
+    List<Profil> profils;
 
     public ServiceImpl(){
-        players = new ArrayList<>();
-
+        profils = new ArrayList<>();
     }
 
     @Override
-    public Player addPlayer(String name, String username) {
-        Player p = new Player(name,username);
-        this.players.add(p);
-        return p;
+    public void addProfil(Profil profil) {
+        profils.add(profil);
     }
 
     @Override
-    public int getPlayersNumber() {
-        return this.players.size();
+    public int getProfilsNumber() {
+        return this.profils.size();
     }
 
-    public Player getPlayerByUsername (String username){
-        for (Player p: players){
+    public Profil getProfilByUsername (String username){
+        for (Profil p: profils){
             if (p.getUsername().equals(username))
                 return p;
         }
