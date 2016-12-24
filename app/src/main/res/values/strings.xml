@@ -7,7 +7,20 @@
     <string name="create_profile">Create new profil</string>
     <string name="edit_profile">Edit profil</string>
     <string name="delete_profile">Delete profil</string>
+
+    <string name="buttonPlay">Play</string>
+    <string name="buttonProfile">Profile</string>
+    <string name="buttonSettings">Settings</string>
+
     <string name="buttonEdit">Edit</string>
     <string name="buttonDelete">Delete</string>
     <string name="buttonReset">Reset</string>
+    <string name="pseudo">Pseudo : </string>
+    <string name="nbwin">Nb. Win : </string>
+    <string name="ratio">Ratio : </string>
+
+    <string name="music">Music : </string>
+    <string name="sound">Sound Effects : </string>
+    <string name="animation">Animation</string>
+
 </resources>

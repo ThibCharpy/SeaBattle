@@ -28,11 +28,11 @@ public class ProfileActivity extends AppCompatActivity {
 
 
         TextView pseudo = (TextView)findViewById(R.id.pseudo);
-        pseudo.setText("Pseudo :");
+        pseudo.setText("Pseudo : ");
         TextView nbwin= (TextView)findViewById(R.id.nbwin);
-        nbwin.setText("Nb. Win :");
+        nbwin.setText("Nb. Win : ");
         TextView ratio = (TextView)findViewById(R.id.ratio);
-        ratio.setText("Ratio :");
+        ratio.setText("Ratio : ");
 
         Button buttonEdit = (Button)findViewById(R.id.buttonEdit);
         buttonEdit.setOnClickListener(new View.OnClickListener() {
@@ -59,12 +59,16 @@ public class ProfileActivity extends AppCompatActivity {
             }
         });
 
+        String pseudoField = "Bite";
+        String nbWinField = "666";
+        String ratioField = "12";
+
         TextView fieldPseudo = (TextView)findViewById(R.id.fieldPseudo);
-        fieldPseudo.setText("Bite");
+        fieldPseudo.setText(pseudoField);
         TextView fieldNbwin = (TextView)findViewById(R.id.fieldNbwin);
-        fieldNbwin.setText("666");
+        fieldNbwin.setText(nbWinField);
         TextView fieldRatio = (TextView)findViewById(R.id.fieldRatio);
-        fieldRatio.setText("12");
+        fieldRatio.setText(ratioField);
 
     }
 }

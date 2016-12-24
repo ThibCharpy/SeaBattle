@@ -1,27 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:background="@drawable/rainbow">
+
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginBottom="30dp"
-        android:layout_marginTop="30dp">
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight=".20"
+        android:gravity="center">
 
         <TextView
-            android:text="Pseudo :"
+            android:text="@string/pseudo"
             android:textSize="30sp"
-            android:gravity="center_horizontal"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:id="@+id/pseudo" />
 
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:textSize="30sp"
             android:gravity="center_horizontal"
             android:id="@+id/fieldPseudo"/>
@@ -29,83 +30,97 @@
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center"
-        android:layout_marginBottom="50dp">
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight=".20"
+        android:gravity="center">
 
-
-        <Button
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:id="@+id/buttonEdit"
-            android:textColor="#FF8C00"
-            android:background="#000000"
-            android:layout_marginRight="50dp"
-            android:text="@string/buttonEdit" />
+            android:layout_weight=".40"
+            android:gravity="center">
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/buttonDelete"
-            android:textColor="#FF8C00"
-            android:background="#000000"
-            android:text="@string/buttonDelete" />
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/buttonEdit"
+                android:textColor="#FF8C00"
+                android:background="#000000"
+                android:text="@string/buttonEdit" />
 
         </LinearLayout>
 
+        <Space
+            android:layout_width="30dp"
+            android:layout_height="1dp"/>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".40"
+            android:gravity="center">
+
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/buttonDelete"
+                android:textColor="#FF8C00"
+                android:background="#000000"
+                android:text="@string/buttonDelete" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginBottom="10dp">
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight=".20"
+        android:gravity="center">
 
         <TextView
-            android:text="Nb. Win :"
+            android:text="@string/nbwin"
             android:textSize="30sp"
-            android:gravity="center_horizontal"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:id="@+id/nbwin" />
 
         <TextView
-            android:layout_height="match_parent"
-            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
             android:textSize="30sp"
-            android:gravity="center_horizontal"
             android:id="@+id/fieldNbwin"/>
 
         </LinearLayout>
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginBottom="30dp">
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight=".20"
+        android:gravity="center">
 
         <TextView
-            android:text="Ratio :"
+            android:text="@string/ratio"
             android:textSize="30sp"
-            android:gravity="center_horizontal"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:id="@+id/ratio" />
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:textSize="30sp"
-            android:layout_marginLeft="20dp"
             android:gravity="center_horizontal"
             android:id="@+id/fieldRatio"/>
 
         </LinearLayout>
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight=".20"
         android:gravity="center">
 
         <Button
