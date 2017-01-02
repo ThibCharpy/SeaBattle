@@ -4,7 +4,7 @@ package fr.univ.orleans.android.seabattle.model;
  * Created by thibault on 15/12/16.
  */
 
-public class Profil {
+public class Profil extends ModelObject{
 
     private String username;
     private long id;

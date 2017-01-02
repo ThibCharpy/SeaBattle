@@ -80,6 +80,7 @@ public class MainActivity extends Activity {
                 Intent goToMenu = new Intent(getApplicationContext(),MenuActivity.class);
                 Profil profilSelect = (Profil) list.getItemAtPosition(position);
                 goToMenu.putExtra("currentProfil",profilSelect.getUsername());
+                goToMenu.putExtra("controller",controller);
                 startActivity(goToMenu);
             }
         });

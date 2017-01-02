@@ -1,5 +1,6 @@
 package fr.univ.orleans.android.seabattle.front;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -10,7 +11,7 @@ import fr.univ.orleans.android.seabattle.model.Profil;
  * Created by thibault on 15/12/16.
  */
 
-public class ServiceImpl implements ProfilsManagement {
+public class ServiceImpl implements ProfilsManagement, Serializable {
 
     private static int MAX_NUMBER_OF_PROFIL = 5;
 
