@@ -145,10 +145,6 @@ public class MainActivity extends Activity {
             if (this.input_zone.getVisibility() == Button.GONE)
                 this.input_zone.setVisibility(Button.VISIBLE);
             adapter.notifyDataSetChanged();
-
-            //this.dataSource.open();
-            //this.dataSource.deleteProfil(edit_profil);
-            //this.dataSource.close();
         } else {
             return false;
         }
