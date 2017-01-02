@@ -23,6 +23,8 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
             + COLUMN_USERNAME + " text not null, "
             + COLUMN_WONGAMES + " integer not null);";
 
+    public static final String TABLE_PROFILS_DROP =  "DROP TABLE IF EXISTS " + TABLE_PROFILS + ";";
+
     public MySQLiteHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
@@ -34,7 +36,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_PROFILS);
+        db.execSQL(TABLE_PROFILS_DROP);
         onCreate(db);
     }
 }

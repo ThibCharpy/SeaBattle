@@ -11,6 +11,9 @@ import java.util.List;
 
 import fr.univ.orleans.android.seabattle.model.Profil;
 
+import static android.R.attr.dashGap;
+import static android.R.attr.id;
+
 /**
  * Created by thibault on 20/12/16.
  */
@@ -34,19 +37,28 @@ public class ProfilsDataSource {
         dbHelper.close();
     }
 
-    public Profil createProfil(String username) {
+    public void createProfil(Profil profil) {
         ContentValues values = new ContentValues();
-        values.put(MySQLiteHelper.COLUMN_USERNAME, username);
-        values.put(MySQLiteHelper.COLUMN_WONGAMES, 0);
-        long insertId = database.insert(MySQLiteHelper.TABLE_PROFILS, null,
-                values);
-        Cursor cursor = database.query(MySQLiteHelper.TABLE_PROFILS,
-                allColumns, MySQLiteHelper.COLUMN_ID + " = " + insertId, null,
-                null, null, null);
-        cursor.moveToFirst();
-        Profil newProfil = cursorToProfil(cursor);
-        cursor.close();
-        return newProfil;
+        values.put(MySQLiteHelper.COLUMN_ID,profil.getId());
+        values.put(MySQLiteHelper.COLUMN_USERNAME, profil.getUsername());
+        values.put(MySQLiteHelper.COLUMN_WONGAMES, profil.getWonGames());
+
+        long rowID = database.insert(MySQLiteHelper.TABLE_PROFILS,null,values);
+        System.out.println("insert row "+rowID);
+
+    }
+
+    public void deleteProfil(Profil profil) {
+        long id = profil.getId();
+        database.delete(MySQLiteHelper.TABLE_PROFILS, MySQLiteHelper.COLUMN_ID
+                + " = " + id, null);
+    }
+
+    public void updateProfil(String username, long id, int wonGames) {
+        ContentValues data = new ContentValues();
+        data.put(MySQLiteHelper.COLUMN_USERNAME, username);
+        data.put(MySQLiteHelper.COLUMN_WONGAMES, wonGames);
+        database.update(MySQLiteHelper.TABLE_PROFILS, data, "_id="+id, null);
     }
 
     public List<Profil> getAllProfils() {
@@ -66,12 +78,22 @@ public class ProfilsDataSource {
         return profils;
     }
 
+    public void clearTable () {
+        database.delete(MySQLiteHelper.TABLE_PROFILS,null,null);
+    }
+
     private Profil cursorToProfil(Cursor cursor) {
         Profil profil = new Profil();
         profil.setId(cursor.getLong(0));
         profil.setUsername(cursor.getString(1));
         profil.setWonGames(Integer.valueOf(cursor.getString(2)));
         return profil;
+    }
+
+    public void addAllProfils(Context context, List<Profil> profils){
+        for (Profil profil : profils){
+            createProfil(profil);
+        }
     }
 
 }

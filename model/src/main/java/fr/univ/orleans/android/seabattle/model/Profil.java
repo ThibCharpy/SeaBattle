@@ -10,6 +10,18 @@ public class Profil {
     private long id;
     private int wonGames;
 
+    private static int ids = 0;
+
+    public Profil() {
+    }
+
+    public Profil(String username) {
+        this.username = username;
+        this.id = ids;
+        this.wonGames = 0;
+        ids++;
+    }
+
     public String getUsername() {
         return username;
     }
