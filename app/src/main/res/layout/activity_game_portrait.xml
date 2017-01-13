@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background1">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_weight=".85"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:id="@+id/gamePart">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:id="@+id/enemyPart">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:textSize="25dp"
+                        android:gravity="center"
+                        android:text="@string/enemyBattleField"/>
+
+                    <TableLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="600dp"
+                        android:layout_gravity="center"
+                        android:paddingTop="100dp"
+                        android:id="@+id/enemyGrid">
+
+                    </TableLayout>
+
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dip"
+                    android:background="#000000" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:id="@+id/playerPart">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:textSize="25dp"
+                        android:textAlignment="center"
+                        android:text="@string/myFleet"/>
+
+                    <TableLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="600dp"
+                        android:layout_gravity="center"
+                        android:paddingTop="100dp"
+                        android:id="@+id/myGrid">
+
+                    </TableLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1dip"
+        android:background="#000000" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_weight=".15"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:id="@+id/subBarPlacement">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight=".25"
+            android:textSize="25dp"
+            android:gravity="top|center"
+            android:text="@string/placementTitle"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight=".75"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TableLayout
+                android:layout_width="0dp"
+                android:layout_weight=".75"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:id="@+id/shipContainer">
+
+            </TableLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight=".25"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_weight=".50"
+                    android:layout_height="0dp"
+                    android:onClick="randomPlacementOnPlayerBattlefield"
+                    android:text="@string/randomPlacement"/>
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_weight=".50"
+                    android:layout_height="0dp"
+                    android:id="@+id/buttonPlay"
+                    android:onClick="activeGame"
+                    android:text="@string/play"/>
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</LinearLayout>

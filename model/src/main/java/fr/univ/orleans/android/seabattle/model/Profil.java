@@ -22,6 +22,10 @@ public class Profil extends ModelObject{
         ids++;
     }
 
+    public void addWonGames(){
+        this.wonGames++;
+    }
+
     public String getUsername() {
         return username;
     }
@@ -44,10 +48,6 @@ public class Profil extends ModelObject{
 
     @Override
     public String toString() {
-        return "Profil: " +
-                "username='" + username + '\'' +
-                ", id=" + id +
-                ", wonGames=" + wonGames +
-                '.';
+        return "Profil: " +username+ " games won: " + wonGames;
     }
 }

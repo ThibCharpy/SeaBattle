@@ -3,7 +3,8 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
-    android:weightSum="1">
+    android:weightSum="1"
+    android:background="@drawable/background1">
 
 
     <LinearLayout
@@ -41,67 +42,35 @@
         android:gravity="center">
 
         <TextView
-            android:text="@string/sound"
+            android:text="@string/diff"
             android:textSize="30sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/sound" />
+            android:id="@+id/diff" />
 
     </LinearLayout>
-
-    <LinearLayout
+    <RadioGroup
         android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_weight=".20"
-        android:gravity="center">
-
-        <SeekBar
-            android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <RadioButton
+            android:text="easy"
+            android:textSize="30sp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/soundBar"/>
+            android:id="@+id/radioEasy"
+            android:layout_weight=".50"
+            android:checked="true"/>
 
-    </LinearLayout>
-
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_weight=".20"
-        android:layout_gravity="center">
-
-        <LinearLayout
-            android:layout_width="0dp"
+        <RadioButton
+            android:text="medium"
+            android:textSize="30sp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight=".30"
-            android:gravity="center">
+            android:id="@+id/radioMedium"
+            android:layout_weight=".50" />
 
-            <CheckBox
-                android:textSize="30sp"
-                android:layout_width="62dp"
-                android:layout_height="50dp"
-                android:button="@null"
-                android:background="@drawable/checkbox"
-                android:id="@+id/animationCheck" />
+    </RadioGroup>
 
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight=".90"
-            android:gravity="center">
-
-            <TextView
-                android:text="@string/animation"
-                android:textSize="30sp"
-                android:layout_width="wrap_content"
-                android:layout_marginLeft="50dp"
-                android:layout_marginStart="50dp"
-                android:layout_height="57dp"
-                android:id="@+id/animation" />
-
-        </LinearLayout>
-
-    </LinearLayout>
 
 </LinearLayout>

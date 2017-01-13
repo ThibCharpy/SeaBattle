@@ -4,7 +4,10 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.Configuration;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.RequiresApi;
 import android.text.Editable;
 import android.view.ContextMenu;
 import android.view.LayoutInflater;
@@ -79,9 +82,9 @@ public class MainActivity extends Activity {
             public void onItemClick(AdapterView<?> list, View view, int position, long id) {
                 Intent goToMenu = new Intent(getApplicationContext(),MenuActivity.class);
                 Profil profilSelect = (Profil) list.getItemAtPosition(position);
-                goToMenu.putExtra("currentProfil",profilSelect.getUsername());
+                controller.setCurrentProfil(profilSelect);
                 goToMenu.putExtra("controller",controller);
-                startActivity(goToMenu);
+                startActivityForResult(goToMenu,1);
             }
         });
 
@@ -215,7 +218,6 @@ public class MainActivity extends Activity {
 
     @Override
     public void onPause() {
-        Toast.makeText(this, "On pause so save", Toast.LENGTH_SHORT).show();
         this.dataSource.open();
         this.dataSource.clearTable();
         this.dataSource.addAllProfils(getApplicationContext(),this.controller.getProfilsList());
